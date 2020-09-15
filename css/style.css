@@ -1,0 +1,194 @@
+
+html{
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after{
+  box-sizing: inherit;
+}
+
+body{
+  background-color: #fff;
+  margin: 0;
+  font-family: 'PT Sans' , 'Arial' ,sans-serif;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+
+
+.container{
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-of-my-project{
+  display: flex;
+  margin-top: 100px;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  background-color:rgb(255, 251, 19) ;
+}
+
+.site-logo-link{
+  position: absolute;
+  left: 50px;
+  top: 50%;
+
+  transform: translateY(-50%)  scale(1.5) rotate(-45deg);
+}
+
+.site-logo-link img{
+  display: block;
+}
+
+
+.site_nav-list{
+  display: inline-flex;
+  justify-content: center;
+  list-style-type: none;
+  z-index: -1;
+  margin: 0 30px;
+  padding: 0 0 0 180px ;
+}
+
+.site_nav-list-item{
+  position: relative;
+  z-index: 5;
+  display: inline-flex;
+}
+
+
+.site_nav-list-link{
+  position: relative;
+  z-index: 5;
+  display: inline-flex;
+  padding: 15px 30px;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 1.25;
+  text-decoration: none;
+  color: #555;
+  font-size: 25px;
+  width: 100%;
+  background-color:rgb(255, 251, 19);
+}
+
+.site_nav-list-link::after{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 7.5px 0 7.5px;
+  border-color: #555 transparent transparent transparent;
+  content: '';
+  margin-left: 5px;
+}
+
+.nav-bar{
+  counter-reset: 'rasul';
+  position: absolute;
+  list-style-type: none;
+  left: 50%;
+  top: 100%;
+  z-index: -1;
+  margin: 0;
+  padding: 0;
+  transform: translateX(-50%);
+  display: none;
+}
+
+.nav-bar li{
+  white-space: nowrap;
+  z-index: -1;
+  counter-increment: 'rasul';
+}
+
+.site_nav-list-item:hover .nav-bar li a{
+  display: block;
+  animation-name: go-down;
+  animation-duration: counter('rasul') ;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  
+}
+
+.links{
+  background-color: rgb(119, 118, 118);
+  display: block;
+  color: #222;
+  z-index: -4;
+  white-space: nowrap;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: color 0.5s ease,
+  background-color 0.5s ease;
+}
+.links:hover{
+  color: #ccc;
+  background-color: yellow;
+}
+.site_nav-list-item:hover .nav-bar{
+  display: block;
+  animation-name: go-up;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes go-up {
+  from {
+    opacity: 0;
+    transform: translateY(-100%) translateX(-50%) ;
+  }
+  
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%) ;
+  }
+}
+
+@keyframes go-down {
+  from {
+    opacity: 0;
+  }
+  
+  to {
+    opacity: 1;
+  }
+}
+
+.social-media{
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;padding: 0;
+  margin-left: 50px;
+}
+
+
+.linko img{
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.social-media-item + .social-media-item{
+margin-left: 10px;
+}
+
